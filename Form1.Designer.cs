@@ -34,7 +34,7 @@
             this.catBox = new System.Windows.Forms.TextBox();
             this.dataBox = new System.Windows.Forms.TextBox();
             this.wikiBox = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -91,14 +91,15 @@
             this.wikiBox.Size = new System.Drawing.Size(291, 342);
             this.wikiBox.TabIndex = 5;
             // 
-            // button2
+            // AddButton
             // 
-            this.button2.Location = new System.Drawing.Point(295, 131);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 29);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddButton.Location = new System.Drawing.Point(295, 131);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(100, 29);
+            this.AddButton.TabIndex = 7;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // button6
             // 
@@ -214,7 +215,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.wikiBox);
             this.Controls.Add(this.dataBox);
             this.Controls.Add(this.catBox);
@@ -236,7 +237,7 @@
         private System.Windows.Forms.TextBox catBox;
         private System.Windows.Forms.TextBox dataBox;
         private System.Windows.Forms.ListBox wikiBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button3;
