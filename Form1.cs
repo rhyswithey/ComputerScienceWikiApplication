@@ -22,6 +22,7 @@ namespace ComputerScienceWikiApplication
 
         private void DisplayArray()
         {
+            wikiBox.CheckBoxes = true;
             try
             {
                 for (int i = 0; i < row; i++)
@@ -36,7 +37,8 @@ namespace ComputerScienceWikiApplication
                         wikiBox.Items.Add(item);
                         continue;
                     }
-                    break;                }
+                    break;
+                }
             }
             catch
             {
@@ -77,6 +79,32 @@ namespace ComputerScienceWikiApplication
             structureBox.Clear();
             defBox.Clear();
             DisplayArray();
+        }
+
+        private void wikiBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Delete == e.KeyCode)
+            {
+                foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    listViewItem.Remove();
+                    
+                }
+            }
+        }
+
+        private void wikiBox_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //Clearing the 4 text boxes on left hand side
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            dataBox.Clear();
+            catBox.Clear();
+            structureBox.Clear();
+            defBox.Clear();
         }
     }
 }

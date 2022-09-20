@@ -37,20 +37,20 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.wikiBox = new System.Windows.Forms.ListView();
             this.StruName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Stru = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Def = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,23 +126,24 @@
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // DeleteButton
             // 
-            this.button4.Location = new System.Drawing.Point(295, 224);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 29);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = true;
+            this.DeleteButton.Location = new System.Drawing.Point(295, 224);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(100, 29);
+            this.DeleteButton.TabIndex = 15;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // ClearButton
             // 
-            this.button5.Location = new System.Drawing.Point(295, 270);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 29);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.ClearButton.Location = new System.Drawing.Point(295, 270);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(100, 29);
+            this.ClearButton.TabIndex = 16;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // label1
             // 
@@ -198,9 +199,17 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(458, 474);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(175, 28);
+            this.statusStrip1.Size = new System.Drawing.Size(144, 28);
             this.statusStrip1.TabIndex = 22;
             this.statusStrip1.Text = "Status Box";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 23);
+            this.toolStripStatusLabel1.Text = "Status Box";
             // 
             // wikiBox
             // 
@@ -210,14 +219,19 @@
             this.Cat,
             this.Stru,
             this.Def});
+            this.wikiBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.wikiBox.GridLines = true;
+            this.wikiBox.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.wikiBox.HideSelection = false;
+            this.wikiBox.LabelEdit = true;
             this.wikiBox.Location = new System.Drawing.Point(480, 50);
             this.wikiBox.Name = "wikiBox";
             this.wikiBox.Size = new System.Drawing.Size(600, 400);
-            this.wikiBox.TabIndex = 23;
+            this.wikiBox.TabIndex = 12;
             this.wikiBox.UseCompatibleStateImageBehavior = false;
             this.wikiBox.View = System.Windows.Forms.View.Details;
+            this.wikiBox.Click += new System.EventHandler(this.wikiBox_Click);
+            this.wikiBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wikiBox_KeyDown);
             // 
             // StruName
             // 
@@ -227,27 +241,17 @@
             // Cat
             // 
             this.Cat.Text = "Category";
-            this.Cat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Cat.Width = 100;
             // 
             // Stru
             // 
             this.Stru.Text = "Structure";
-            this.Stru.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Stru.Width = 100;
             // 
             // Def
             // 
             this.Def.Text = "Definition";
             this.Def.Width = 300;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 23);
-            this.toolStripStatusLabel1.Text = "Status Box";
             // 
             // Form1
             // 
@@ -261,8 +265,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button6);
@@ -293,8 +297,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
