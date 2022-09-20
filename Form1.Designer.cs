@@ -33,7 +33,6 @@
             this.structureBox = new System.Windows.Forms.TextBox();
             this.catBox = new System.Windows.Forms.TextBox();
             this.dataBox = new System.Windows.Forms.TextBox();
-            this.wikiBox = new System.Windows.Forms.ListBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -46,6 +45,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.wikiBox = new System.Windows.Forms.ListView();
+            this.StruName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Stru = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Def = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // inputBox
@@ -83,14 +87,6 @@
             this.dataBox.Size = new System.Drawing.Size(108, 20);
             this.dataBox.TabIndex = 4;
             // 
-            // wikiBox
-            // 
-            this.wikiBox.FormattingEnabled = true;
-            this.wikiBox.Location = new System.Drawing.Point(434, 24);
-            this.wikiBox.Name = "wikiBox";
-            this.wikiBox.Size = new System.Drawing.Size(291, 342);
-            this.wikiBox.TabIndex = 5;
-            // 
             // AddButton
             // 
             this.AddButton.Location = new System.Drawing.Point(295, 131);
@@ -103,7 +99,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(434, 363);
+            this.button6.Location = new System.Drawing.Point(42, 363);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(149, 47);
             this.button6.TabIndex = 11;
@@ -112,7 +108,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(576, 363);
+            this.button8.Location = new System.Drawing.Point(197, 363);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(149, 47);
             this.button8.TabIndex = 13;
@@ -193,17 +189,57 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 477);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1142, 22);
             this.statusStrip1.TabIndex = 22;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // wikiBox
+            // 
+            this.wikiBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.wikiBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.StruName,
+            this.Cat,
+            this.Stru,
+            this.Def});
+            this.wikiBox.GridLines = true;            
+            this.wikiBox.HideSelection = false;
+            this.wikiBox.Location = new System.Drawing.Point(480, 50);
+            this.wikiBox.Name = "wikiBox";
+            this.wikiBox.Size = new System.Drawing.Size(600, 400);
+            this.wikiBox.TabIndex = 23;
+            this.wikiBox.UseCompatibleStateImageBehavior = false;
+            this.wikiBox.View = System.Windows.Forms.View.Details;
+            // 
+            // StruName
+            // 
+            this.StruName.Text = "Structure Name";
+            this.StruName.Width = 100;
+            // 
+            // Cat
+            // 
+            this.Cat.Text = "Category";
+            this.Cat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Cat.Width = 100;
+            // 
+            // Stru
+            // 
+            this.Stru.Text = "Structure";
+            this.Stru.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Stru.Width = 100;
+            // 
+            // Def
+            // 
+            this.Def.Text = "Definition";
+            this.Def.Width = 300;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1142, 499);
+            this.Controls.Add(this.wikiBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -216,7 +252,6 @@
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.wikiBox);
             this.Controls.Add(this.dataBox);
             this.Controls.Add(this.catBox);
             this.Controls.Add(this.structureBox);
@@ -236,7 +271,6 @@
         private System.Windows.Forms.TextBox structureBox;
         private System.Windows.Forms.TextBox catBox;
         private System.Windows.Forms.TextBox dataBox;
-        private System.Windows.Forms.ListBox wikiBox;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
@@ -249,6 +283,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ListView wikiBox;
+        private System.Windows.Forms.ColumnHeader StruName;
+        private System.Windows.Forms.ColumnHeader Cat;
+        private System.Windows.Forms.ColumnHeader Stru;
+        private System.Windows.Forms.ColumnHeader Def;
     }
 }
 

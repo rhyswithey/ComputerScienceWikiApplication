@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 using System.Windows.Forms;
-using System.IO;
+
 
 namespace ComputerScienceWikiApplication
 {
@@ -16,23 +10,42 @@ namespace ComputerScienceWikiApplication
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
+
         }
 
+        ArrayList Main = new ArrayList();
         static int row = 12;
-        static int collum = 4;
+        static int column = 4;        
         int arrLen = 0;
-        string[,] wikiArray = new string[row, collum];
+        string[,] wikiArray = new string[row, column];
 
         private void DisplayArray()
-        {
-            wikiBox.Items.Clear();
-            string str = "";
-            for (int x = 0; x < row; x++)
+        {               
+            for (int i = 0; i < row; i++)
             {
-                str = wikiArray[x, 0] + "\t |" + wikiArray[x, 1] + "\t |" + wikiArray[x, 2] + "\t |" + wikiArray[x, 3];
-                wikiBox.Items.Add(str);
+                foreach (string s in wikiArray)
+                {                    
+                    if (wikiBox.ToString().Contains(wikiArray[i, 0]))
+                    {
+                        ListViewItem item = new ListViewItem();
+                        item.Text = wikiArray[i, 0];
+                        item.SubItems.Add(wikiArray[i, 1]);
+                        item.SubItems.Add(wikiArray[i, 2]);
+                        item.SubItems.Add(wikiArray[i, 3]);
+                        wikiBox.Items.Add(item);
+                        break;
+                    }
+                    else
+                    {
+                        statusStrip1.Text = "Duplicate Item";
+                    }
+                    
+                }
             }
+            
+
+
         }
         private void ArrayAdd()
         {
@@ -55,9 +68,9 @@ namespace ComputerScienceWikiApplication
             else
             {
                 statusStrip1.Text = "Wiki Array list is full!!";
-            }            
+            }
         }
-        
+
         #endregion
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -65,7 +78,7 @@ namespace ComputerScienceWikiApplication
             dataBox.Clear();
             catBox.Clear();
             structureBox.Clear();
-            defBox.Clear();            
+            defBox.Clear();
             DisplayArray();
         }
     }
