@@ -10,23 +10,23 @@ namespace ComputerScienceWikiApplication
     {
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
 
         }
 
         ArrayList Main = new ArrayList();
         static int row = 12;
-        static int column = 4;        
+        static int column = 4;
         int arrLen = 0;
         string[,] wikiArray = new string[row, column];
 
         private void DisplayArray()
-        {               
-            for (int i = 0; i < row; i++)
+        {
+            try
             {
-                foreach (string s in wikiArray)
-                {                    
-                    if (wikiBox.ToString().Contains(wikiArray[i, 0]))
+                for (int i = 0; i < row; i++)
+                {
+                    if (wikiArray[i, 0] != null)
                     {
                         ListViewItem item = new ListViewItem();
                         item.Text = wikiArray[i, 0];
@@ -34,18 +34,14 @@ namespace ComputerScienceWikiApplication
                         item.SubItems.Add(wikiArray[i, 2]);
                         item.SubItems.Add(wikiArray[i, 3]);
                         wikiBox.Items.Add(item);
-                        break;
+                        continue;
                     }
-                    else
-                    {
-                        statusStrip1.Text = "Duplicate Item";
-                    }
-                    
-                }
+                    break;                }
             }
-            
-
-
+            catch
+            {
+                toolStripStatusLabel1.Text = "Error adding item to list";
+            }
         }
         private void ArrayAdd()
         {
@@ -75,6 +71,7 @@ namespace ComputerScienceWikiApplication
         private void AddButton_Click(object sender, EventArgs e)
         {
             ArrayAdd();
+            wikiBox.Items.Clear();
             dataBox.Clear();
             catBox.Clear();
             structureBox.Clear();

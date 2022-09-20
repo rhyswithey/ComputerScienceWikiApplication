@@ -50,6 +50,8 @@
             this.Cat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Stru = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Def = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // inputBox
@@ -189,11 +191,16 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 477);
+            this.statusStrip1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(458, 474);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1142, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(175, 28);
             this.statusStrip1.TabIndex = 22;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Text = "Status Box";
             // 
             // wikiBox
             // 
@@ -203,7 +210,7 @@
             this.Cat,
             this.Stru,
             this.Def});
-            this.wikiBox.GridLines = true;            
+            this.wikiBox.GridLines = true;
             this.wikiBox.HideSelection = false;
             this.wikiBox.Location = new System.Drawing.Point(480, 50);
             this.wikiBox.Name = "wikiBox";
@@ -234,11 +241,19 @@
             this.Def.Text = "Definition";
             this.Def.Width = 300;
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 23);
+            this.toolStripStatusLabel1.Text = "Status Box";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 499);
+            this.ClientSize = new System.Drawing.Size(1142, 511);
             this.Controls.Add(this.wikiBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button1);
@@ -258,7 +273,10 @@
             this.Controls.Add(this.defBox);
             this.Controls.Add(this.inputBox);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,6 +306,7 @@
         private System.Windows.Forms.ColumnHeader Cat;
         private System.Windows.Forms.ColumnHeader Stru;
         private System.Windows.Forms.ColumnHeader Def;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
