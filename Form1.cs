@@ -88,14 +88,13 @@ namespace ComputerScienceWikiApplication
                 foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
                 {
                     listViewItem.Remove();
-                    
                 }
             }
         }
 
         private void wikiBox_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         //Clearing the 4 text boxes on left hand side
@@ -105,6 +104,22 @@ namespace ComputerScienceWikiApplication
             catBox.Clear();
             structureBox.Clear();
             defBox.Clear();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Would you like to delete selected item?","Delete Item", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                foreach (ListViewItem eachItem in wikiBox.SelectedItems)
+                {
+                    wikiBox.Items.Remove(eachItem);
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }
