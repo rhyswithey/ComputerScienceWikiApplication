@@ -20,9 +20,11 @@ namespace ComputerScienceWikiApplication
         int arrLen = 0;
         string[,] wikiArray = new string[row, column];
 
+
+
         private void DisplayArray()
         {
-            wikiBox.CheckBoxes = true;
+
             try
             {
                 for (int i = 0; i < row; i++)
@@ -44,6 +46,7 @@ namespace ComputerScienceWikiApplication
             {
                 toolStripStatusLabel1.Text = "Error adding item to list";
             }
+            wikiBox.Sort();
         }
         private void ArrayAdd()
         {
@@ -108,18 +111,25 @@ namespace ComputerScienceWikiApplication
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Would you like to delete selected item?","Delete Item", MessageBoxButtons.YesNo);
+            int Row = wikiBox.SelectedItems.Count;
+            DialogResult result = MessageBox.Show("Would you like to delete selected item?", "Delete Item", MessageBoxButtons.YesNo);
+            
             if (result == DialogResult.Yes)
             {
-                foreach (ListViewItem eachItem in wikiBox.SelectedItems)
+                foreach (ListViewItem item in wikiBox.SelectedItems)
                 {
-                    wikiBox.Items.Remove(eachItem);
-                }
+                    wikiBox.Items.Remove(item);
+                }       
+
             }
             else
             {
 
             }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
