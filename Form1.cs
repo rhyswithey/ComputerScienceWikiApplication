@@ -21,17 +21,16 @@ namespace ComputerScienceWikiApplication
         static int column = 4;
         int arrLen = 0;
         string[,] wikiArray = new string[row, column];
-        ListViewItem listview = new ListViewItem();
 
         private void DisplayArray()
         {
-            
+
             try
             {
                 for (int i = 0; i < row; i++)
                 {
                     if (wikiArray[i, 0] != null)
-                    {     
+                    {
                         ListViewItem item = new ListViewItem();
                         item.Text = wikiArray[i, 0];
                         item.SubItems.Add(wikiArray[i, 1]);
@@ -47,6 +46,15 @@ namespace ComputerScienceWikiApplication
             {
                 toolStripStatusLabel1.Text = "Error adding item to list";
             }
+        }
+
+        private void ClearItems()
+        {
+            wikiBox.Items.Clear();
+            dataBox.Clear();
+            catBox.Clear();
+            structureBox.Clear();
+            defBox.Clear();
         }
         private void ArrayAdd()
         {
@@ -71,19 +79,19 @@ namespace ComputerScienceWikiApplication
                 statusStrip1.Text = "Wiki Array list is full!!";
             }
         }
+        private void BubbleSort()
+        {
 
-        #endregion
+        }
+
+
         private void AddButton_Click(object sender, EventArgs e)
         {
             ArrayAdd();
-            wikiBox.Items.Clear();
-            dataBox.Clear();
-            catBox.Clear();
-            structureBox.Clear();
-            defBox.Clear();
+            ClearItems();
             DisplayArray();
         }
-
+        #endregion
         private void wikiBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Delete == e.KeyCode)
@@ -112,18 +120,47 @@ namespace ComputerScienceWikiApplication
             {
                 wikiBox.Items.RemoveAt(index);
                 for (int i = 0; i < wikiArray.Length; i++)
-                {                    
+                {
                     wikiArray[index, 0] = "";
                     wikiArray[index, 1] = "";
                     wikiArray[index, 2] = "";
-                    wikiArray[index, 3] = "";                    
+                    wikiArray[index, 3] = "";
                     continue;
                 }
             }
             else
             {
 
-            }                       
+            }
+            ClearItems();
+            DisplayArray();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int index = wikiBox.SelectedIndices[0];
+            for (int i = 0; i < wikiArray.Length; i++)
+            {
+                wikiArray[index, 0] = dataBox.Text;
+                wikiArray[index, 1] = catBox.Text;
+                wikiArray[index, 2] = structureBox.Text;
+                wikiArray[index, 3] = defBox.Text;
+                break;
+            }
+            ClearItems();
+            DisplayArray();
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            BubbleSort();
+            DisplayArray();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Sort first.
+
+        }
+    
+
     }
 }

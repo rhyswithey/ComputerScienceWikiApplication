@@ -107,6 +107,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "Load";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button8
             // 
@@ -125,6 +126,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // DeleteButton
             // 
@@ -190,6 +192,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // statusStrip1
             // 
