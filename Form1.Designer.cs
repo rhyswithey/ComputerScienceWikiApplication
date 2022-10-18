@@ -107,6 +107,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "Load";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button8
             // 
@@ -191,6 +192,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // statusStrip1
             // 
@@ -231,8 +233,7 @@
             this.wikiBox.Size = new System.Drawing.Size(600, 400);
             this.wikiBox.TabIndex = 12;
             this.wikiBox.UseCompatibleStateImageBehavior = false;
-            this.wikiBox.View = System.Windows.Forms.View.Details;
-            this.wikiBox.Click += new System.EventHandler(this.wikiBox_Click);
+            this.wikiBox.View = System.Windows.Forms.View.Details;            
             this.wikiBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wikiBox_KeyDown);
             // 
             // StruName
@@ -315,4 +316,3 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
-
