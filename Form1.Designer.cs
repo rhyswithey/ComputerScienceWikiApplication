@@ -125,7 +125,6 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Edit";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // DeleteButton
             // 
@@ -231,8 +230,7 @@
             this.wikiBox.Size = new System.Drawing.Size(600, 400);
             this.wikiBox.TabIndex = 12;
             this.wikiBox.UseCompatibleStateImageBehavior = false;
-            this.wikiBox.View = System.Windows.Forms.View.Details;
-            this.wikiBox.Click += new System.EventHandler(this.wikiBox_Click);
+            this.wikiBox.View = System.Windows.Forms.View.Details;            
             this.wikiBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wikiBox_KeyDown);
             // 
             // StruName

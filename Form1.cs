@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.ObjectModel;
 
 
 namespace ComputerScienceWikiApplication
@@ -19,18 +21,17 @@ namespace ComputerScienceWikiApplication
         static int column = 4;
         int arrLen = 0;
         string[,] wikiArray = new string[row, column];
-
-
+        ListViewItem listview = new ListViewItem();
 
         private void DisplayArray()
         {
-
+            
             try
             {
                 for (int i = 0; i < row; i++)
                 {
                     if (wikiArray[i, 0] != null)
-                    {
+                    {     
                         ListViewItem item = new ListViewItem();
                         item.Text = wikiArray[i, 0];
                         item.SubItems.Add(wikiArray[i, 1]);
@@ -46,7 +47,6 @@ namespace ComputerScienceWikiApplication
             {
                 toolStripStatusLabel1.Text = "Error adding item to list";
             }
-            wikiBox.Sort();
         }
         private void ArrayAdd()
         {
@@ -95,11 +95,6 @@ namespace ComputerScienceWikiApplication
             }
         }
 
-        private void wikiBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Clearing the 4 text boxes on left hand side
         private void ClearButton_Click(object sender, EventArgs e)
         {
@@ -111,25 +106,24 @@ namespace ComputerScienceWikiApplication
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            int Row = wikiBox.SelectedItems.Count;
+            int index = wikiBox.SelectedIndices[0];
             DialogResult result = MessageBox.Show("Would you like to delete selected item?", "Delete Item", MessageBoxButtons.YesNo);
-            
             if (result == DialogResult.Yes)
             {
-                foreach (ListViewItem item in wikiBox.SelectedItems)
-                {
-                    wikiBox.Items.Remove(item);
-                }       
-
+                wikiBox.Items.RemoveAt(index);
+                for (int i = 0; i < wikiArray.Length; i++)
+                {                    
+                    wikiArray[index, 0] = "";
+                    wikiArray[index, 1] = "";
+                    wikiArray[index, 2] = "";
+                    wikiArray[index, 3] = "";                    
+                    continue;
+                }
             }
             else
             {
 
-            }
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-           
+            }                       
         }
     }
 }
