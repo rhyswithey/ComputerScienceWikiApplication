@@ -27,8 +27,8 @@ namespace ComputerScienceWikiApplication
         int arrLen = 0;
         string[,] wikiArray = new string[row, column];
 
-        // Add items to the ListView
-        // Display items ListBox       
+
+
         private void DisplayArray()
         {
             try
@@ -52,19 +52,8 @@ namespace ComputerScienceWikiApplication
             {
                 toolStripStatusLabel1.Text = "Error adding item to list";
             }
+            wikiBox.Sort();
         }
-
-        // Clear items functions - List and textbox
-        private void ClearItems()
-        {
-            wikiBox.Items.Clear();
-            dataBox.Clear();
-            catBox.Clear();
-            structureBox.Clear();
-            defBox.Clear();
-        }
-
-        // Add the items from the text box to the array
         private void ArrayAdd()
         {
             if (row > arrLen)
@@ -95,17 +84,17 @@ namespace ComputerScienceWikiApplication
         {
 
         }
+        private void BubbleSort()
+        {
 
-        // Add items to array and ListBox
+        #endregion
         private void AddButton_Click(object sender, EventArgs e)
         {
             ArrayAdd();
             ClearItems();
             DisplayArray();
         }
-        #endregion
 
-        // Delete all selected items in the listbox only using delte key
         private void wikiBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Delete == e.KeyCode)
@@ -115,6 +104,11 @@ namespace ComputerScienceWikiApplication
                     listViewItem.Remove();
                 }
             }
+        }
+
+        private void wikiBox_Click(object sender, EventArgs e)
+        {
+
         }
 
         //Clearing the 4 text boxes on left hand side
@@ -150,32 +144,11 @@ namespace ComputerScienceWikiApplication
             ClearItems();
             DisplayArray();
         }
-
-        // Edit button that edits the array and ListBox
         private void button3_Click(object sender, EventArgs e)
         {
-            int index = wikiBox.SelectedIndices[0];
-            for (int i = 0; i < wikiArray.Length; i++)
-            {
-                wikiArray[index, 0] = dataBox.Text;
-                wikiArray[index, 1] = catBox.Text;
-                wikiArray[index, 2] = structureBox.Text;
-                wikiArray[index, 3] = defBox.Text;
-                break;
-            }
-            ClearItems();
-            DisplayArray();
+           
         }
-        
-        // Load button
-        private void button6_Click(object sender, EventArgs e)
-        {
-            BubbleSort();
-            DisplayArray();
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Sort first
-        }
+    
+
     }
 }
